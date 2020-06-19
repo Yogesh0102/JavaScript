@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>currency convertor</title>
+        <style type="text/css">
+            #box{
+                width: 900px;
+                height: 270px;
+                margin-left: 180px;
+                margin-top: 80px;
+                border: 16px solid black;
+                box-shadow: 5px 10px red;
+            }
+            h2{
+                font-size: 50px;
+            }
+            table{
+                margin:0px auto;
+            }
+            input{
+                font-size:30px;
+            }
+            .choose{
+                font-size:30px;
+            }
+            body{
+                background-color:violet;
+            }
+        </style>
+    </head>
+    <body onload="convertCurrency()" >
+    	<div id="box">
+    		<h2 style="text-align:center">Currency Convertor</h2>
+    		<table>
+    			<tr>
+    				<td>
+    					<input id="fromamount" type="text" size="28" value="1" onkeyup="convertCurrency();">
+    				</td>
+    				<td>
+                        <select id="from"  class="choose"onchange="convertCurrency()">
+    					    <option value="AUD" >Australian Dollar(AUD)</option>
+                            <option value="BGN" >Bulgarian Dollar(AUD)</option>
+                            <option value="CAD" >Canadian Dollar(CAD)</option>
+                            <option value="CHF" >Swiss Franc (CHF)</option>
+                            <option value="EUR" >Danish Krone(Dkk)</option>
+                            <option value="GBP" >Pound Sterling(GBP)</option>
+                            <option value="ILS" >Israeli New Shekel(ILS)</option>
+                            <option value="INR" selected >Indian Rupees(INR)</option>
+                            <option value="JPY" >Japanese Yen (JPY)</option>
+                            <option value="PHP" >Philliphines(PHP)</option>
+                            <option value="RUB" >Russian Ruble(RUB)</option>
+                            <option value="USD" >US Dollar(USD)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="toamount" type="text" size="28" disabled>
+                    </td>
+                    <td>
+                        <select id="to" class="choose" onchange="convertCurrency()">
+                            <option value="AUD" >Australian Dollar(AUD)</option>
+                            <option value="BGN" >Bulgarian Dollar(AUD)</option>
+                            <option value="CAD" >Canadian Dollar(CAD)</option>
+                            <option value="CHF" >Swiss Franc (CHF)</option>
+                            <option value="EUR" >Danish Krone(Dkk)</option>
+                            <option value="GBP" >Pound Sterling(GBP)</option>
+                            <option value="ILS" >Israeli New Shekel(ILS)</option>
+                            <option value="INR"  >Indian Rupees(INR)</option>
+                            <option value="JPY" >Japanese Yen (JPY)</option>
+                            <option value="PHP" >Philliphines(PHP)</option>
+                            <option value="RUB" >Russian Ruble(RUB)</option>
+                            <option value="USD" selected >US Dollar(USD)</option>
+                        </select>
+                    </td> 
+                </tr>
+            </table>
+        </div>
+        <script>
+            function convertCurrency()
+            {
+                var from=document.getElementById("from").value;
+                var to=document.getElementById("to").value;
+                var xmlhttp=new XMLHttpRequest();
+                // var url="http://data.fixer.io/api/convert ?q="+from+ "_"+to+"access_key = 7b60cb1b895920d2e303f68481f4bf20;
+                var url="https://free.currencyconverterapi.com/api/v6/convert?q="+from+"_"+to+"&compact=ultra&apiKey=44bbef74df526f28aa0a";
+                xmlhttp.open("GET",url,true);
+                xmlhttp.send();
+                xmlhttp.onload=function()
+                {
+                    if(this.readyState === 4 && this.status === 200 )
+                    {
+                        var result=this.responseText;
+                        console.log(result);
+                        var jsResult=JSON.parse(result);
+                        var q = from+"_"+to;
+                        console.log(q);
+                        console.log(jsResult[q]);
+                        var amount = jsResult[q] * document.getElementById('fromamount').value;
+                        console.log(amount);
+                        document.getElementById("toamount").value= amount;
+                    }       
+                }
+            }
+        </script>
+    </body>
+</html>
