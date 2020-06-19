@@ -1,0 +1,45 @@
+#clear{
+	height:40px;
+	width:250px;
+	color:black;
+	font-size:30px;
+	background-color:orange;
+	font-weight: bold;
+}
+#p{
+	border:10px solid red;
+	border-collapse:collapse;
+	padding:20px;
+	height:338px;
+	width:248px;
+}
+.formstyle{
+	width:298px;
+	height:398px;
+	margin:auto;
+	background-color:black;
+}
+input{
+	width:40px;
+}
+#ans{
+	width:250px;
+	height:40px;
+}
+#b{
+	height:30px;
+	width:80px;
+	font-weight: bold;
+	font-size:20px;
+}
+form:hover{
+	color: violet;
+  	background-color: orange;
+  	text-decoration: underline;
+}
+button:hover{
+	background-color: orange;
+}
+h1{
+	text-align:center;
+}
