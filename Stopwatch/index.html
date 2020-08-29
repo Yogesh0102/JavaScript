@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Stop watch</title>
+	 	<link rel="stylesheet" href="style.css">
+	 	<link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
+	 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<body style="background:#2d2d2d; color:red">
+		<h1 style="font-size: 60px;font-family:Adamina"> STOPWATCH</h1><br><br>
+		<div class="controls">
+			<button onclick="start()" class="btn btn-primary  btn-lg">Start</button>
+			<button onclick="pause()" class="btn btn-warning  btn-lg">Pause</button>
+			<button onclick="stop()" class="btn btn-danger  btn-lg">Stop</button>
+			<button onclick="restart()" class="btn btn-success  btn-lg">Restart</button>
+			<button onclick="lap()"  class="btn btn-dark  btn-lg">Lap</button>
+			<button onclick="reset()"  class="btn btn-danger  btn-lg">Reset</button>
+		</div>
+		<div class="stopwatch">00:00:00</div>
+		<ul class="laps"></ul>
+		<script src="script.js"></script>
+	</body>
+</html>

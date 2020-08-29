@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	   <title>Meme Generator</title>
+	   <link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class='box'>
+			<h1 style="font-size:60px; font-weight:bold">Generate Your Own Meme Here</h1>
+			<img src="image.jpg">
+			<div class='box2'>
+                <p>
+                    <textarea id="top-text"></textarea>
+                    Text size: <input type="range" id="top-text-size-input" min="0.05" max="0.25" value="0.15" step="0.01">
+                </p>
+                <p>
+                    <textarea id="bottom-text"></textarea>
+                    Text size: <input type="range" id="bottom-text-size-input" min="0.05" max="0.25" value="0.15" step="0.01">
+                </p>
+                <p>
+                    <input type="file" id="image-input" class="filee" accept="image/*">
+                </p>
+                <p>
+                    <button id="generate-btn">Generate</button>
+                </p>
+                <p>
+                    <canvas id="meme-canvas" title="Right click -> &quot;Save image as...&quot;"></canvas>
+                </p>
+            </div>
+        <div>
+		<script src="script.js"></script>
+	</body>
+</html>
